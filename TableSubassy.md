@@ -292,4 +292,7 @@ As this is the point that is attached to the *TableTop*, the legs will move inwa
 Activate the *TableAssembly* file and click the "Update Assembly" ![](TableSubassyScreenshots/UpdateAssembly.png) button on the Assembly 4 workbench toolbar.
 
 The four legs now move in under the table slightly as shown.
-We adjust LCS positions by rotating or translating on any axis as needed, making this a good modular design.
+
+![](TableSubassyScreenshots/AssemblyTableCompleteBonus.png)
+
+We can adjust LCS positions by rotating or translating on any axis as needed, making this a good modular design.
