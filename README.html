@@ -1,0 +1,293 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title></title></head><body><h1>Table Assembly Tutorial</h1>
+
+<h2>A very simple subassembly task using the FreeCAD Assembly 4 Workbench</h2>
+
+<p>Our table has just three component types:</p>
+
+<ol>
+<li>table top</li>
+<li>leg</li>
+<li>foot</li>
+</ol>
+
+<p>We will make a sub-assembly from the leg and the foot, then add four of these to the table top.</p>
+
+<h1>Set up the files:</h1>
+
+<p>Create the following five files, saving them in the same directory for convenience:</p>
+
+<p><img src="TableSubassyScreenshots/Files.png" alt=""></p>
+
+<hr>
+
+<h1>Create the table top:</h1>
+
+<p>Switch to the TableTop tab at the bottom of your window: <img src="TableSubassyScreenshots/TabTableTop.png" alt=""></p>
+
+<p>Choose the Assembly 4 workbench <img src="TableSubassyScreenshots/Assy4Workbench.png" alt="">  and create a new Body <img src="TableSubassyScreenshots/NewBody.png" alt=""> leaving the default name &ldquo;Body&rdquo;.</p>
+
+<p>Expanding our model tree, it now looks like this:</p>
+
+<p><img src="TableSubassyScreenshots/TreeTable.png" alt=""></p>
+
+<p>Right-click on the Body in the tree:</p>
+
+<p><img src="TableSubassyScreenshots/ActiveBody.png" alt="">
+and select &ldquo;Toggle active body&rdquo;.
+This will change you out of the <strong>Assembly 4</strong> workbench to the <strong>Part Design</strong> workbench. <img src="TableSubassyScreenshots/WorkbenchPartDesign.png" alt=""></p>
+
+<p>Click on the New Sketch button: <img src="TableSubassyScreenshots/NewSketch.png" alt="">.  Select &ldquo;XY_Plane001 (Base Plane)&rdquo; from the dialog and hit OK.</p>
+
+<p>Create the following sketch of approximately 600mm x 400mm small table top:</p>
+
+<p><img src="TableSubassyScreenshots/SketchTableTop.png" alt=""></p>
+
+<p>Constrain the corners to the centre with a symmetry constraint.  (Select the two corners, then the origin, and hit the &#39;s&#39; key).</p>
+
+<p>Hit ESC or OK and pad the selected sketch <img src="TableSubassyScreenshots/PadSketch.png" alt=""> by 20mm, then zoom out to see your part:</p>
+
+<p><img src="TableSubassyScreenshots/TableTopComplete.png" alt=""></p>
+
+<p>Save the <em>TableTop</em> file.</p>
+
+<hr>
+
+<h1>Create the leg</h1>
+
+<p>Follow the same procedure as above to create the table leg, with sketch dimensions of 40x40mm and pad height of 300mm.</p>
+
+<p><img src="TableSubassyScreenshots/SketchLeg.png" alt=""></p>
+
+<p>As per the table, constrain the corners to the centre with a symmetry constraint.  (Select the two corners, then the origin, and hit the &#39;s&#39; key). This will allow us to use the default Local Co-ordinate System to attach the foot to the centre of the leg later.</p>
+
+<p><img src="TableSubassyScreenshots/LegComplete.png" alt=""></p>
+
+<p>Our leg model tree should now look like this:</p>
+
+<p><img src="TableSubassyScreenshots/TreeLeg.png" alt=""></p>
+
+<p>Save the <em>Leg</em> file.</p>
+
+<hr>
+
+<h1>Create the foot:</h1>
+
+<p>Repeat the procedure again, this time creating a circular sketch with a 60mm diameter:</p>
+
+<p><img src="TableSubassyScreenshots/SketchFoot.png" alt=""></p>
+
+<p>Constrain the sketch centrepoint to the origin (select both points and hit &#39;c&#39; for coincident)</p>
+
+<p>This time, when you create the pad feature, make it <strong>10mm</strong>, and reverse the direction so that the solid is below the origin:</p>
+
+<p><img src="TableSubassyScreenshots/FootPadReversed.png" alt=""></p>
+
+<p><img src="TableSubassyScreenshots/FootComplete.png" alt=""></p>
+
+<p>When we attach the top of the foot to the bottom of the leg, we can use the origin without needing to add another Local Co-ordinate System.</p>
+
+<p>Save the <em>Foot</em> file.</p>
+
+<hr>
+
+<h1>Create the leg and foot assembly:</h1>
+
+<p>To enable file model names to appear in the assembly windows, close all the files and re-open them.</p>
+
+<p>For the LegFootAssembly, add a Model <img src="TableSubassyScreenshots/Assy4Model.png" alt="">.  We don&#39;t need a Body in the assembly as we did in the <em>Leg</em> and <em>Foot</em> (though it won&#39;t do any harm).</p>
+
+<p>Select the <em>LegFootAssembly</em> tab (at the bottom of the window)</p>
+
+<p><img src="TableSubassyScreenshots/LegFootAssemblyTab.png" alt=""></p>
+
+<p>to activate the file.</p>
+
+<p>Create a new Assembly 4 model. <img src="TableSubassyScreenshots/Assy4Model.png" alt=""></p>
+
+<p>From the Assembly 4 workbench toolbar, select &ldquo;<em>Insert part into the assembly</em>&rdquo;.  <img src="TableSubassyScreenshots/InsertPartAssembly.png" alt=""></p>
+
+<p>Choose <strong>Leg#Body</strong> and click OK.</p>
+
+<p>Repeat for the foot, choosing <strong>Foot#Body</strong>.</p>
+
+<p>Because we chose the pad direction for the leg to be <strong>up</strong> from the origin, and the pad direction for the foot to be <strong>down</strong>, the parts automatically align correctly, each with its origin at the assembly origin:</p>
+
+<p><img src="TableSubassyScreenshots/FootLegAssy.png" alt=""></p>
+
+<p>Save the <em>LegFootAssembly</em> file.</p>
+
+<hr>
+
+<h1>Create the table assembly:</h1>
+
+<p>Activate the <em>TableAssembly</em> file: <img src="TableSubassyScreenshots/TableAssyTab.png" alt=""></p>
+
+<p>Add a model <img src="TableSubassyScreenshots/Assy4Model.png" alt=""> only.  As with the foot assembly, a Body is not required.</p>
+
+<h2>Insert the <em>TableTop</em> part into the assembly</h2>
+
+<p>From the Assembly 4 workbench toolbar, select <em>Insert part into the assembly</em>.  <img src="TableSubassyScreenshots/InsertPartAssembly.png" alt=""></p>
+
+<p>Select <strong>TableTop#Body</strong> and hit OK.
+This will insert the <em>TableTop</em> part at the origin.</p>
+
+<p><img src="TableSubassyScreenshots/AssemblyTop.png" alt=""></p>
+
+<h2>Insert the <em>LegFootAssembly</em></h2>
+
+<p>Insert <img src="TableSubassyScreenshots/InsertPartAssembly.png" alt=""> the leg and foot assembly in the same way by choosing <strong>LegFootAssembly#Model</strong>.</p>
+
+<p>This also inserts the assembly by default at the origin:</p>
+
+<p><img src="TableSubassyScreenshots/AssemblyLegFootInitial.png" alt=""></p>
+
+<p>We need to attach it to the corner of the table.  For this, we need to create <strong>Local Co-ordinate Systems</strong> (LCS), four on the <em>TableTop</em> and a matching one on the <em>LegFootAssembly</em>.</p>
+
+<p><strong>Create the <em>TableTop</em> LCSs:</strong></p>
+
+<p>Open the <em>TableTop</em> file, select the <strong>Body</strong> in the tree and click &ldquo;Create new co-ordinate system in part.&rdquo; <img src="TableSubassyScreenshots/CreateCoordinateSystem.png" alt=""> from the Assembly 4 workbench.</p>
+
+<p>Rename it to &ldquo;LCS_Leg1&rdquo;</p>
+
+<p><img src="TableSubassyScreenshots/LCS_Leg1.png" alt=""></p>
+
+<p>This will place our new LCS at the origin:</p>
+
+<p><img src="TableSubassyScreenshots/LCS_Leg1Origin.png" alt=""></p>
+
+<p>Move it to the corner where we want to attach the leg as follows:</p>
+
+<p>Right-click on the LCS in the model tree:</p>
+
+<p><img src="TableSubassyScreenshots/LCS_Leg1ModelTree.png" alt=""></p>
+
+<p>Select &ldquo;Edit Datum&rdquo; to bring up the Co-ordinate system parameters dialog.</p>
+
+<p><img src="TableSubassyScreenshots/LCSCoordinateSystmemParameters.png" alt=""></p>
+
+<p>In the order shown by 1,2 and 3 below, select the <strong>vertices</strong> at the bottom corners of the table top:</p>
+
+<p><img src="TableSubassyScreenshots/LCSCoordinateSystemMove1.png" alt=""></p>
+
+<p>Next, select the Attachment mode &ldquo;<strong>Align O-X-Y</strong>&rdquo; to indicate that the three points we just selected should be the Origin, X-axis direction and Y-axis direction of our new LCS.</p>
+
+<p><img src="TableSubassyScreenshots/LCSAlignO-X-Y.png" alt=""></p>
+
+<p>This will align the new LCS as shown:</p>
+
+<p><img src="TableSubassyScreenshots/LCSAligned.png" alt=""></p>
+
+<p><strong>*Note:</strong> If you have a high-res screen, it may be easier to select the vertices if you increase the pick radius:
+<em>Edit -&gt; Preferences -&gt; Display -&gt; Colours(yes!) -&gt; Pick radius</em></p>
+
+<p>Add LCS_Leg2, LCS_Leg3 and LCS_Leg4 in the same way, rotating the table top each time.</p>
+
+<p><strong>*Note:</strong> Ensure you select three <strong>vertices</strong> each time for your Origin, X-direction and Y-direction, and not one of the other LCSs you just created.</p>
+
+<p>Our part should now look like this:</p>
+
+<p><img src="TableSubassyScreenshots/LCSAlignedComplete.png" alt=""></p>
+
+<p>Also check that your LCSs are created at the root of the Body tree as shown:</p>
+
+<p><img src="TableSubassyScreenshots/TreeLCSRoot.png" alt=""></p>
+
+<p>If you want to import an LCS into another assembly later, it must be at the root level.</p>
+
+<p><strong>Create the LegFootAssembly LCS:</strong></p>
+
+<p>It is not possible to position an LCS in an assembly, so we instead create an LCS in the <em>Leg</em> part and <strong>import</strong> it into the <em>LegFootAssembly</em>.</p>
+
+<p>Activate the <em>Leg</em> part: <img src="TableSubassyScreenshots/TabLeg.png" alt=""></p>
+
+<p>Click Create new co-ordinate system in part. <img src="TableSubassyScreenshots/CreateCoordinateSystem.png" alt=""></p>
+
+<p>Rename it to &ldquo;LCS_TopCorner&rdquo;.
+This will place it at the origin as shown:</p>
+
+<p><img src="TableSubassyScreenshots/LCSTopCornerDefault.png" alt=""></p>
+
+<p>Right click on the new LCS in the model tree:</p>
+
+<p><img src="TableSubassyScreenshots/LCS_TopCornerRightClick.png" alt=""></p>
+
+<p>and select &ldquo;Edit datum&rdquo;.</p>
+
+<p>As before with the <em>TableTop</em>, select the three corners and choose attachment mode <strong>O-X-Y</strong>.  This time, choose the corners at the <strong>top</strong> of the leg, so that the top of the <em>Leg</em> will attach to the bottom of the <em>TableTop</em>.</p>
+
+<p><img src="TableSubassyScreenshots/LCS_LegOXY.png" alt=""></p>
+
+<p><img src="TableSubassyScreenshots/LCSLegChooseOXY.png" alt=""></p>
+
+<p>Hit OK and save the <em>Leg</em> file.</p>
+
+<p>Activate the <em>LegFootAssembly</em> file, where you will now see the new LCS.</p>
+
+<p>Select the new LCS in the model tree of the <em>LegFootAssembly</em>:</p>
+
+<p><img src="TableSubassyScreenshots/LCS_LegFootSelected.png" alt=""></p>
+
+<p>Click &ldquo;Import datum object&rdquo; <img src="TableSubassyScreenshots/ImportDatumObject.png" alt=""> and keep the default settings:</p>
+
+<p><img src="TableSubassyScreenshots/ImportDatumObjectDefaults.png" alt=""></p>
+
+<p>We can now see a copy of the datum object in the <em>LegFootAssembly</em> tree:</p>
+
+<p><img src="TableSubassyScreenshots/TreeLegFootAssyImportedDatum.png" alt=""></p>
+
+<p>Activate the <em>TabelAssembly</em> file: <img src="TableSubassyScreenshots/TableAssyTab.png" alt=""></p>
+
+<p>Select the LegFootAssembly in the model tree:</p>
+
+<p><img src="TableSubassyScreenshots/TreeSelectLegFootAssembly.png" alt=""></p>
+
+<p>Click &ldquo;Move/Attach a part in the assembly&rdquo; <img src="TableSubassyScreenshots/MoveAttachPart.png" alt=""></p>
+
+<p>In the following dialog, select Attach to: TableTop.
+Under &ldquo;Select LCS in Part:&rdquo; choose LCS_TopCorner.
+Under &ldquo;Select LSC in Parent:&rdquo; choose LCS_Leg1</p>
+
+<p><img src="TableSubassyScreenshots/AssemblyTablePlaceLinkedPart.png" alt=""></p>
+
+<p>This aligns the two parts by aligning the co-ordinate systems we created.</p>
+
+<p><img src="TableSubassyScreenshots/AssemblyTableLeg1.png" alt=""></p>
+
+<p>Hit OK, and then repeat for the other three legs, renaming them as you go to LegFootAssembly_2, etc.</p>
+
+<p>The finished product won&#39;t win us any Furniture Industry Association awards, but at least we can now make assemblies and sub-assembles with Zolko&#39;s Assembly 4 workbench.</p>
+
+<p><img src="TableSubassyScreenshots/AssemblyTableComplete.png" alt=""></p>
+
+<h1>Summary</h1>
+
+<p>We need a total of nine parts to assemble the table: four legs, four feet and a table top.  We could add each of these nine individually, but it is much faster - and easier to update - if we include the leg and foot together as a sub-assembly.</p>
+
+<p>To do this, we need to add a Local Co-ordinate System to the leg, and import it into the leg/foot subassembly for use in the finished product.</p>
+
+<h1>Bonus exercise:</h1>
+
+<p>Now that we have used the LCS in the <em>LegFootAssembly</em> to position the parts on the <em>TableTop</em>, moving them is very simple:</p>
+
+<p>Activate the <em>Leg</em> file.</p>
+
+<p>Right-click on LCS_TopCorner and select &ldquo;Edit datum&rdquo;:</p>
+
+<p><img src="TableSubassyScreenshots/LCS_TopCornerRightClick.png" alt=""></p>
+
+<p>Move the LCS out from the Body with an offset of -10mm in the X and Y directions:</p>
+
+<p><img src="TableSubassyScreenshots/AttachmentOffset.png" alt=""></p>
+
+<p>Click OK.</p>
+
+<p>As this is the point that is attached to the <em>TableTop</em>, the legs will move inwards.</p>
+
+<p>Activate the <em>TableAssembly</em> file and click the &ldquo;Update Assembly&rdquo; <img src="TableSubassyScreenshots/UpdateAssembly.png" alt=""> button on the Assembly 4 workbench toolbar.</p>
+
+<p>The four legs now move in under the table slightly as shown.</p>
+
+<p><img src="TableSubassyScreenshots/AssemblyTableCompleteBonus.png" alt=""></p>
+
+<p>We can adjust LCS positions by rotating or translating on any axis as needed, making this a good modular design.</p>
+</body></html>

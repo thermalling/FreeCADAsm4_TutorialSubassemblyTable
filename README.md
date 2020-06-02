@@ -38,6 +38,7 @@ This will change you out of the **Assembly 4** workbench to the **Part Design** 
 Click on the New Sketch button: ![](TableSubassyScreenshots/NewSketch.png).  Select "XY_Plane001 (Base Plane)" from the dialog and hit OK.
 
 Create the following sketch of approximately 600mm x 400mm small table top:
+
 ![](TableSubassyScreenshots/SketchTableTop.png)
 
 Constrain the corners to the centre with a symmetry constraint.  (Select the two corners, then the origin, and hit the 's' key).
@@ -53,6 +54,7 @@ Create the leg
 =================
 
 Follow the same procedure as above to create the table leg, with sketch dimensions of 40x40mm and pad height of 300mm.
+
 ![](TableSubassyScreenshots/SketchLeg.png)
 
 As per the table, constrain the corners to the centre with a symmetry constraint.  (Select the two corners, then the origin, and hit the 's' key). This will allow us to use the default Local Co-ordinate System to attach the foot to the centre of the leg later.
@@ -228,6 +230,8 @@ Hit OK and save the *Leg* file.
 Activate the *LegFootAssembly* file, where you will now see the new LCS.
 
 Select the new LCS in the model tree of the *LegFootAssembly*:
+
+
 ![](TableSubassyScreenshots/LCS_LegFootSelected.png)
 
 
