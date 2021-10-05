@@ -184,7 +184,7 @@ This will align the new LCS as shown:
 ![](TableSubassyScreenshots/LCSAligned.png)
 
 **\*Note:** If you have a high-res screen, it may be easier to select the vertices if you increase the pick radius:
-*Edit -> Preferences -> Display -> Colours(yes!) -> Pick radius*
+*Edit -> Preferences -> Display -> 3D View -> Pick radius*
 
 Add LCS\_Leg2, LCS\_Leg3 and LCS\_Leg4 in the same way, rotating the table top each time.
 
